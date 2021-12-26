@@ -14,8 +14,6 @@
 	<link rel="stylesheet" href="/assets/css/pogo-slider.min.css">
 	<link rel="stylesheet" href="/assets/css/style.css">
 	<link rel="stylesheet" href="/assets/css/responsive.css">
-	<link rel="stylesheet" href="/assets/css/custom.css">
-
 
 	<!--link fontawesome-->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
@@ -48,8 +46,6 @@
 					<ul class="navbar-nav">
 						<li><a class="nav-link" href="/">Inicio</a></li>
 						<li><a class="nav-link active" href="/servicios">Servicios</a></li>
-						<li><a class="nav-link" href="/turnos">Turnos</a></li>
-						<li><a class="nav-link" href="/blog">Blog</a></li>
 						<li><a class="nav-link" href="/contacto">Contacto</a></li>
 					</ul>
 				</div>
@@ -71,7 +67,7 @@
 
 	<!-- Fin de la tabla de Centro de salud 12 de Octubre-->
 
-        
+
 
 
 	<!-- link bootstrap popper-->
@@ -84,6 +80,8 @@
 	<script src="/assets/js/jquery.min.js"></script>
 	<script src="/assets/js/popper.min.js"></script>
 	<script src="/assets/js/bootstrap.min.js"></script>
+	<script src="/assets/js/bootstrap.js"></script>
+	<script src="/assets/js/jquery-3.3.1.js"></script>
 	<!-- PLUGINS -->
 	<script src="/assets/js/jquery.magnific-popup.min.js"></script>
 	<script src="/assets/js/jquery.pogo-slider.min.js"></script>
@@ -97,7 +95,34 @@
 	<script src="/assets/js/isotope.min.js"></script>
 	<script src="/assets/js/images-loded.min.js"></script>
 	<script src="/assets/js/custom.js"></script>
-	
+
+	<script>
+		$(document).ready(function () {
+			$('#mytable').on('click', 'edit', function () {
+				let servicio = $(this).data('servicio');
+				let lunes = $(this).data('lunes');
+				let martes = $(this).data('martes');
+				let miercoles = $(this).data('miercoles');
+				let jueves = $(this).data('jueves');
+				let viernes = $(this).data('viernes');
+				$('EditModal').modal('show');
+				$('.servicio').val('servicio');
+				$('.lunes').val('lunes');
+				$('.martes').val('martes');
+				$('.miercoles').val('miercoles');
+				$('.jueves').val('jueves');
+				$('.viernes').val('viernes');
+			})
+		})
+
+		$('#mytable').on('click', '.delete', function () {
+			let servicio = $(this).data('id');
+			$('#DeleteModal').modal('show');
+			$('.servicio2').val(servicio);
+
+		})
+})
+	</script>
 
 </body>
 

@@ -168,34 +168,87 @@ app.get('/csSC', (req, res) => {
     });
 });
 
-
+//--Agregar,editar,borrar servicio Centro de Salud 12 de octubre--//
 app.post('/save', (req, res) => {
     let data = {servicio: req.body.servicio, lunes: req.body.lunes, martes: req.body.martes,miercoles: req.body.miercoles, jueves: req.body.jueves, viernes: req.body.viernes};
     let sql = "INSERT INTO profesional SET ?";
-    let query = conn.query(sql, data, (err, results) => {
+    let query = conexion.query(sql, data, (err, results) => {
     if (err) throw err;
     res.redirect('/cs12oc');
     });
 });
 
+app.post('/update', (req, res) => {
+    let sql = "UPDATE profesional SET servicio='" + req.body.servicio + "', lunes='" + req.body.lunes + "',martes='"+req.body.martes+"',miercoles='"+req.body.miercoles+"'jueves='"+req.body.jueves+"',viernes='"+req.body.viernes+"' WHERE producto_id=" + req.body.id;
+    let query = conexion.query(sql, (err, results) => {
+      if (err) throw err;
+      res.redirect('/cs12oc');
+    });
+  });
+  
+  app.post('/delete',(req, res) => {
+    let sql = "DELETE FROM profesional WHERE servicio"+req.body.servicio+"";
+    let query = conn.query(sql, (err, results) => {
+      if(err) throw err;
+        res.redirect('/cs12oc');
+    });
+  });
+
+//--Agregar,editar,borrar servicio Centro de salud San Cayetano--//
+
 app.post('/save', (req, res) => {
     let data = {servicio: req.body.servicio, lunes: req.body.lunes, martes: req.body.martes,miercoles: req.body.miercoles, jueves: req.body.jueves, viernes: req.body.viernes};
     let sql = "INSERT INTO sanca SET ?";
-    let query = conn.query(sql, data, (err, results) => {
+    let query = conexion.query(sql, data, (err, results) => {
     if (err) throw err;
     res.redirect('/csSC');
     });
 });
 
+app.post('/update', (req, res) => {
+    let sql = "UPDATE profesional SET servicio='" + req.body.servicio + "', lunes='" + req.body.lunes + "',martes='"+req.body.martes+"',miercoles='"+req.body.miercoles+"'jueves='"+req.body.jueves+"',viernes='"+req.body.viernes+"' WHERE producto_id=" + req.body.id;
+    let query = conexion.query(sql, (err, results) => {
+      if (err) throw err;
+      res.redirect('/csSC');
+    });
+  });
+  
+  app.post('/delete',(req, res) => {
+    let sql = "DELETE FROM profesional WHERE servicio="+req.body.servicio+"";
+    let query = conn.query(sql, (err, results) => {
+      if(err) throw err;
+        res.redirect('/csSC');
+    });
+  });
+
+//--Agregar,editar,borrar servicio Centro de salud Juán D. Perón--//
 app.post('/save', (req, res) => {
     let data = {servicio: req.body.servicio, lunes: req.body.lunes, martes: req.body.martes,miercoles: req.body.miercoles, jueves: req.body.jueves, viernes: req.body.viernes};
     let sql = "INSERT INTO juandperon SET ?";
-    let query = conn.query(sql, data, (err, results) => {
+    let query = conexion.query(sql, data, (err, results) => {
     if (err) throw err;
     res.redirect('/csjdp');
     });
 });
 
+app.post('/update', (req, res) => {
+    let sql = "UPDATE profesional SET servicio='" + req.body.servicio + "', lunes='" + req.body.lunes + "',martes='"+req.body.martes+"',miercoles='"+req.body.miercoles+"'jueves='"+req.body.jueves+"',viernes='"+req.body.viernes+"' WHERE producto_id=" + req.body.id;
+    let query = conexion.query(sql, (err, results) => {
+      if (err) throw err;
+      res.redirect('/csjdp');
+    });
+  });
+  
+  app.post('/delete',(req, res) => {
+    let sql = "DELETE FROM profesional WHERE servicio="+req.body.servicio+"";
+    let query = conexion.query(sql, (err, results) => {
+      if(err) throw err;
+        res.redirect('/csjdp');
+    });
+  });
+
+
+ 
 app.listen(port, () => {
     console.log(`Puerto corriendo en http://localhost:${port}`)
 });

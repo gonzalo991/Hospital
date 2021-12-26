@@ -1,7 +1,7 @@
 <div class="container p-4">
     <h2 class="justify-content-center">{{centrotitulo}}</h2>
     <button class="btn btn-primary" data-toggle="modal" data-target="#myModalAdd">Añadir Servicio</button>
-    <table class="table table-dark table-hover">
+    <table class="table table-dark table-hover" id="mytable">
         <thead>
             <tr>
                 <th scope="col">Especialidad</th>
@@ -43,8 +43,10 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Añadir Servicio</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title" id="exampleModalLabel">Añadir producto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
@@ -115,6 +117,31 @@
     </div>
 </form>
 
+<!-- Modal para borrar-->
+
+<form id="add-row-form" action="/delete" method="post">
+    <div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myModalLabel">Borrar Servicio</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <strong>¿Estás seguro de borrar este elemento?</strong>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" name="servicio" class="form-control servicio2" required>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-success">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
 
 <div class="boton-salud">
     <button class="btn-primary"><a href="/cs12oc">Centro de Salud 12 de Octubre</a></button>
@@ -122,22 +149,3 @@
     <button class="btn btn-success"><a href="/csSC">Centro de Salud San Cayetano</a></button>
 </div>
 
-<script>
-		$(document).ready(function () {
-			$('#mytable').on('click', 'edit', function (){
-				let servicio = $(this).data('servicio');
-				let lunes = $(this).data('lunes');
-				let martes = $(this).data('martes');
-				let miercoles = $(this).data('miercoles');
-				let jueves = $(this).data('jueves');
-				let viernes = $(this).data('viernes');
-				$('EditModal').modal('show');
-				$('.servicio').val('servicio');
-				$('.lunes').val('lunes');
-				$('.martes').val('martes');
-				$('.miercoles').val('miercoles');
-				$('.jueves').val('jueves');
-				$('.viernes').val('viernes');
-			})
-		})
-	</script>
