@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app"
   },
   "keywords": [],
   "author": "Gonzalo Araya",
@@ -12,12 +13,17 @@
     "type": "git",
     "url": "proyectofinal-incluyeme"
   },
-  "description": "",
   "dependencies": {
-    "express": "^4.17.1",
+    "build": "^0.1.4",
+    "consolidate": "^0.16.0",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
     "hbs": "^4.2.0",
     "jquery": "^3.3.1",
     "mysql": "^2.18.1",
-    "nodemon": "^2.0.15"
-  }
+    "nodemailer": "^6.7.2",
+    "nodemon": "^2.0.15",
+    "path": "^0.12.7"
+  },
+  "description": ""
 }

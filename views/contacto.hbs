@@ -79,11 +79,11 @@
 
 				<div class="col-lg-12 col-xs-12">
 					<div class="contact-block">
-						<form id="contactForm">
+						<form id="contactForm" action="/send-email" method="post">
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group mb-3">
-										<input type="text" class="form-control" id="name" name="name"
+										<input type="text" class="form-control" id="name" name="nombre"
 											placeholder="Nombre" required data-error="Por favor escribe tu nombre">
 										<div class="help-block with-errors"></div>
 									</div>
@@ -91,22 +91,30 @@
 								<div class="col-md-6">
 									<div class="form-group mb-3">
 										<input type="text" placeholder="Email" id="email" class="form-control"
-											name="name" required data-error="Debes ingresar tu email">
+											name="mail" required data-error="Debes ingresar tu email">
 										<div class="help-block with-errors"></div>
 									</div>
 								</div>
 								<div class="col-md-12">
 									<div class="form-group mb-3">
 										<input type="text" placeholder="Número de teléfono" id="number"
-											class="form-control" name="number" required
+											class="form-control" name="numero" required
 											data-error="Es necesario ingresar un número de teléfono">
 										<div class="help-block with-errors"></div>
 									</div>
 								</div>
 								<div class="col-md-12">
 									<div class="form-group mb-3">
-										<textarea class="form-control" id="message" placeholder="Escribe tu consulta"
-											rows="8" data-error="Debes escribir tu consulta para poder enviarla"
+										<input type="text" placeholder="Asunto" id="asunto" class="form-control"
+											name="asunto" required data-error="¿A qué se debe su consulta?">
+										<div class="help-block with-errors"></div>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group mb-3">
+										<textarea class="form-control" name="mensaje" id="message"
+											placeholder="Escribe tu consulta" rows="8"
+											data-error="Debes escribir tu consulta para poder enviarla"
 											required></textarea>
 										<div class="help-block with-errors"></div>
 									</div>
@@ -120,48 +128,13 @@
 						</form>
 					</div>
 				</div>
-
-
-				<div class="col-lg-12 col-xs-12 " id="contactIcons">
-					<div class="left-contact">
-						<h2>Como contactarnos</h2>
-						<div class="media cont-line">
-							<div class="media-left icon-b">
-								<i class="fa fa-location-arrow" aria-hidden="true"></i>
-							</div>
-							<div class="media-body dit-right">
-								<h4>Dirección</h4>
-								<p>{{direccion}}</p>
-							</div>
-						</div>
-						<div class="media cont-line">
-							<div class="media-left icon-b">
-								<i class="fa fa-envelope" aria-hidden="true"></i>
-							</div>
-							<div class="media-body dit-right">
-								<h4>E-mail</h4>
-								<a href="#">demoinfo@gmail.com</a>
-							</div>
-						</div>
-						<div class="media cont-line">
-							<div class="media-left icon-b">
-								<i class="fas fa-phone-volume"></i>
-							</div>
-							<div class="media-body dit-right">
-								<h4>Número de teléfono</h4>
-								<a href="#">12345 67890</a><br>
-								<a href="#">12345 67890</a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-
 			</div>
 		</div>
 	</div>
 
 	<!-- Fin Contacto -->
+
+	{{>footer}}
 
 
 	<!-- link bootstrap popper-->
