@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const hbs = require('hbs')
 const path = require('path');
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 
 
@@ -11,6 +11,7 @@ const engines = require('consolidate');
 app.engine('hbs', engines.handlebars);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+app.set('port', process.env.PORT || 5000);
 hbs.registerPartials(path.join(__dirname, '/views/partials'));
 
 //Contenido estatico
