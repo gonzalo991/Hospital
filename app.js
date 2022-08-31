@@ -7,8 +7,6 @@ const port = process.env.PORT || 5000;
 
 
 //Definición de handlebars
-const engines = require('consolidate');
-app.engine('hbs', engines.handlebars);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.set('port', process.env.PORT || 5000);
